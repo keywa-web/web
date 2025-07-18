@@ -1,0 +1,15 @@
+---
+title: "Berita Terbaru"
+description: "Kumpulan berita terbaru dan terhangat dari kami."
+layout: "base.njk"
+---
+
+<h2>Semua Berita</h2>
+<ul class="article-list">
+{% for article in articles | reverse %}
+  <li class="article-item">
+    <a href="/berita/{{ article.slug }}/">{{ article.judul }}</a>
+    <p class="article-meta">Kategori: {{ article.kategori }} | Tanggal: {{ article.tanggal_publikasi }}</p>
+  </li>
+{% endfor %}
+</ul>

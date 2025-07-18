@@ -1,0 +1,28 @@
+---
+pagination:
+  data: articles
+  size: 1
+  alias: article
+permalink: "/berita/{{ article.slug }}/"
+layout: "base.njk"
+title: "{{ article.judul }}"
+description: "Baca berita lengkap tentang {{ article.judul }}."
+---
+
+<article class="article-content">
+  <h1>{{ article.judul }}</h1>
+  <p class="article-meta">
+    Oleh: <strong>{{ article.penulis }}</strong> <br>
+    Kategori: {{ article.kategori }} | Dipublikasikan pada: {{ article.tanggal_publikasi }}
+  </p>
+  
+  {% if article.url_gambar_utama %}
+    <img src="{{ article.url_gambar_utama }}" alt="{{ article.judul }}">
+  {% endif %}
+  
+  <hr>
+  
+  <!-- Tempat untuk Iklan In-Article -->
+
+  {{ article.konten | safe }}
+</article>
